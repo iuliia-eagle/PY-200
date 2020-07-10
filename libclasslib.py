@@ -4,7 +4,7 @@ class Book:
         self.title = title
 
     def __str__(self):
-        return self.author() + '; ' + self.title
+        return self.author + '; ' + self.title
 
     def edit(self, parameter, value):
         if parameter == 'author':
@@ -14,7 +14,7 @@ class Book:
 
 
 class Catalogue:
-    def __init__(self, books):
+    def __init__(self, books=[]):
         self.books = books
 
     def __str__(self):
@@ -46,4 +46,4 @@ class Catalogue:
         with open(file, 'r') as f:
             for line in f:
                 splitline = line.split("; ")
-                self.books.append({'author': splitline[0], 'title': splitline[1]})
+                self.books.append(Book(author=splitline[0], title=splitline[1]))
