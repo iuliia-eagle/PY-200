@@ -1,5 +1,12 @@
 import json
 
+def load(file):
+    catalog = []
+    with open(file, 'r') as f:
+        for line in f:
+            splitline = line.split("; ")
+            catalog.append({'author': splitline[0], 'title': splitline[1]})
+    return catalog
 
 def load_json(file):
     catalog = []
